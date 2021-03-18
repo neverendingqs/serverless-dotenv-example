@@ -1,0 +1,39 @@
+service: simple-alternative-example
+# Uncomment if you want to use Serverless' built-in dotenv feature instead Note:
+# Serverless will load all env vars in `.env` in 3.0.0+
+# https://www.serverless.com/framework/docs/environment-variables/ useDotenv:
+# true
+variablesResolutionMode: 20210219
+
+custom:
+  # Do this if you only want to load env vars into the Serverless environment
+  # This will make env vars available here and in any Serverless plugins
+  dotenvVars: ${file(configs.js)}
+
+plugins:
+  - serverless-env-var-logger
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  # Do this if you want to load env vars into the Serverless environment AND
+  # automatically configure all your functions with them
+  environment: ${file(configs.js)}
+
+functions:
+  hello:
+    handler: src/hello.handler
+    environment:
+      # Serverless can prioritize env vars already set over the ones in `.env`
+      FOO: ${env:FOO}
+
+      # This will ensure Serverless will only use the env var in `.env`
+      # but will never use env vars that are already set in the environment.
+      BAR: ${self:custom.dotenvVars.BAR}
+
+      # This will use env vars in `.env` first before checking for one set by
+      # the system.
+      # The default value `''` is required if BAZ is not resolved.
+      # Leaving it out means you want Serverless to throw an error if the env
+      # var is not set by either the system or in `.env`
+      BAZ: ${self:custom.dotenvVars.BAZ, env:BAZ, ''}

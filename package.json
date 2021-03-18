@@ -1,0 +1,27 @@
+{
+  "name": "serverless-dotenv-example",
+  "version": "0.0.1",
+  "description": "Example of how to use dotenv with the Serverless Framework",
+  "scripts": {
+    "sls": "sls",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neverendingqs/serverless-dotenv-example.git"
+  },
+  "keywords": [
+    "serverless-framework",
+    "dotenv"
+  ],
+  "author": "neverendingqs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/neverendingqs/serverless-dotenv-example/issues"
+  },
+  "homepage": "https://github.com/neverendingqs/serverless-dotenv-example#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "serverless": "^2.30.3"
+  }
+}

@@ -1,8 +1,8 @@
 service: simple-alternative-example
 # Uncomment if you want to use Serverless' built-in dotenv feature instead Note:
 # Serverless will load all env vars in `.env` in 3.0.0+
-# https://www.serverless.com/framework/docs/environment-variables/ useDotenv:
-# true
+# https://www.serverless.com/framework/docs/environment-variables/
+# useDotenv: true
 variablesResolutionMode: 20210219
 
 custom:

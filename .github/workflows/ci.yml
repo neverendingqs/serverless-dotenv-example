@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm ci
+      - run: npm run sls -- package
+      - name: Validate env vars
+        run: |
+          set -e
+
+          cat .serverless/cloudformation-template-update-stack.json | grep BAR-e4c8c146-9ff9-46ef-a45a-7e91da0487a1
+          cat .serverless/cloudformation-template-update-stack.json | grep FOO-ab02910a-d9bf-4091-b650-79ac1b3f0148

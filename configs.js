@@ -7,6 +7,5 @@ module.exports = async ({ options, resolveConfigurationProperty }) => {
   return Object.assign(
     {},
     envVars,      // `dotenv` environment variables
-    process.env   // system environment variables
   );
 };

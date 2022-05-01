@@ -24,6 +24,6 @@
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
-    "serverless": "^3.10.2"
+    "serverless": "^3.16.0"
   }
 }

@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: neverendingqs/gh-action-node-update-deps@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+      - uses: neverendingqs/gh-action-node-update-deps@v2
+        with:
+          github-token: ${{ secrets.REPO_GITHUB_TOKEN }}

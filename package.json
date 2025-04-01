@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/neverendingqs/serverless-dotenv-example#readme",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
-    "serverless": "^3.28.1"
+    "serverless": "^4.10.0"
   }
 }
